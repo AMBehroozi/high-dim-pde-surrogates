@@ -24,67 +24,50 @@ This enables:
 One key demonstration is tsunami forecasting, where SC-FNO reconstructs seafloor deformation from sparse buoy measurements and forecasts tsunami propagation in under five minutes.
 
 ---
-
 ## Method Summary
 
 The main idea behind SC-NO is simple: instead of learning only the final solution of a physical system, the model also learns how that solution changes when the input changes. This is important for high-dimensional PDEs because each simulation is expensive, and standard neural operators often need many samples to generalize well. By adding sensitivity information during training, each sample provides both the solution and its local response structure.
 
-Mathematically, let the governing physical system define an operator
+Mathematically, let the governing physical system define an operator:
 
-$$
-\mathcal{G}: a \mapsto u,
-$$
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?\mathcal{G}:a\mapsto&space;u" />
+</p>
 
-where $a$ denotes the input parameters, initial condition, forcing, or source field, and $u$ denotes the resulting physical state. A standard neural operator learns an approximation
+where `a` denotes the input parameters, initial condition, forcing, or source field, and `u` denotes the resulting physical state. A standard neural operator learns an approximation:
 
-$$
-\mathcal{G}_{\theta}(a) \approx u.
-$$
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?\mathcal{G}_{\theta}(a)\approx&space;u" />
+</p>
 
 In the proposed **Sensitivity-Constrained Neural Operator (SC-NO)** framework, the model is trained not only to match the solution field, but also to match the sensitivity of the solution with respect to the input:
 
-$$
-\frac{\partial \mathcal{G}_{\theta}(a)}{\partial a}
-\approx
-\frac{\partial \mathcal{G}(a)}{\partial a}.
-$$
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?\frac{\partial\mathcal{G}_{\theta}(a)}{\partial&space;a}\approx\frac{\partial\mathcal{G}(a)}{\partial&space;a}" />
+</p>
 
 The training objective combines the standard prediction loss with a sensitivity-consistency loss:
 
-$$
-\mathcal{L}
-=
-\mathcal{L}_{u}
-+
-\lambda
-\mathcal{L}_{s},
-$$
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?\mathcal{L}=\mathcal{L}_{u}+\lambda\mathcal{L}_{s}" />
+</p>
 
 where
 
-$$
-\mathcal{L}_{u}
-=
-\left\|
-\mathcal{G}_{\theta}(a) - u
-\right\|^2,
-$$
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?\mathcal{L}_{u}=\left\|\mathcal{G}_{\theta}(a)-u\right\|^2" />
+</p>
 
 and
 
-$$
-\mathcal{L}_{s}
-=
-\left\|
-\frac{\partial \mathcal{G}_{\theta}(a)}{\partial a}
--
-\frac{\partial u}{\partial a}
-\right\|^2.
-$$
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?\mathcal{L}_{s}=\left\|\frac{\partial\mathcal{G}_{\theta}(a)}{\partial&space;a}-\frac{\partial&space;u}{\partial&space;a}\right\|^2" />
+</p>
 
-Here, $\mathcal{L}_{u}$ enforces accuracy in the predicted physical state, while $\mathcal{L}_{s}$ constrains the local input-output response of the learned operator. This makes each training sample more informative and improves generalization, especially when only limited simulation data are available.
+Here, `L_u` enforces accuracy in the predicted physical state, while `L_s` constrains the local input-output response of the learned operator. This makes each training sample more informative and improves generalization, especially when only limited simulation data are available.
 
 In practice, this framework is implemented using sensitivity-constrained variants of Fourier Neural Operators, referred to as **SC-FNO** in the experiments.
+
 
 ---
 
