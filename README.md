@@ -1,5 +1,7 @@
 # Sensitivity-Driven Scaling Enables Real-Time Inference for High-Dimensional PDEs
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19923479.svg)](https://doi.org/10.5281/zenodo.19923479)
+
 Official implementation for the paper:
 
 **Sensitivity-Driven Scaling Enables Real-Time Inference for High-Dimensional PDEs**  
