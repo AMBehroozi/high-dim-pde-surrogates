@@ -1,0 +1,27 @@
+\section{Experiments}
+\label{sec:EXP}
+
+\renewcommand{\thefigure}{G.\arabic{figure}}  % Number figures as A.1, A.2, ...
+\renewcommand{\thetable}{G.\arabic{table}}  % Number tables as A.1, A.2, ...
+
+To evaluate the performance of Neural Operators (NOs) and Sensitivity-Constrained Neural Operators (SC-NOs), we design two primary classes of experiments based on the direction of inference with respect to the solution operator \( \mathcal{G}_\theta \):
+
+
+\subsection*{Forward Prediction}
+
+In this setting, the objective is to train a model to predict the future states of the system \( u(\mathbf{x}, t, p) \) given partial temporal information and the spatial parameter field. The model learns the forward mapping:
+\begin{equation}
+\mathcal{G}_\theta: a(\mathbf{x}, t, p) \mapsto u(\mathbf{x}, t, p),
+\end{equation}
+where the input \( a(\mathbf{x}, t, p) = \big(a_{\text{init}}(\mathbf{x}, t),\; p(\mathbf{x})\big) \) includes the first \( t_u \) time steps of the solution and the spatially varying parameters \( p(\mathbf{x}) \). The model is trained to generate the solution over the remaining time interval \( [t_u, T] \), and performance is measured using metrics such as relative \( L^2 \) error and mean absolute error (MAE).
+
+\subsection*{Inverse Inference via Optimization}
+
+In the second class of experiments, we treat the trained NO or SC-NO as a differentiable surrogate and use it in a gradient-based optimization loop to recover the unknown input function \( a(\mathbf{x}, t, p) \), particularly the parameter field \( p(\mathbf{x}) \), from a given solution trajectory \( u(\mathbf{x}, t, p) \). This inverse inference is formalized as:
+\begin{equation}
+\min_{a(\mathbf{x}, t, p)} \| \mathcal{G}_\theta(a) - u_{\text{target}}(\mathbf{x}, t) \|^2,
+\end{equation}
+where \( u_{\text{target}}(\mathbf{x}, t) \) is the observed or target solution path. The optimization leverages automatic differentiation through \( \mathcal{G}_\theta \), and the accuracy of the inferred parameters is evaluated by comparing the recovered \( p(\mathbf{x}) \) to ground truth.
+
+\vspace{6pt}
+Together, these two types of experiments provide a comprehensive evaluation of both predictive accuracy and gradient quality, allowing us to assess the effectiveness of sensitivity constraints in improving model generalization and interpretability.

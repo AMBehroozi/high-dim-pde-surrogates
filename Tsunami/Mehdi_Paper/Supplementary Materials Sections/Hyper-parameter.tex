@@ -1,0 +1,136 @@
+\section{Hyperparameters and Settings}
+\renewcommand{\thefigure}{H.\arabic{figure}}  % Number figures as A.1, A.2, ...
+\renewcommand{\thetable}{H.\arabic{table}}  % Number tables as A.1, A.2, ...
+
+All models were trained using the Adam optimizer with a batch size of 16, an initial learning rate of 0.001, a learning rate scheduler with a decay factor $\gamma = 0.95$ applied every 100 epochs. The training was conducted over a spatiotemporal domain discretized into a $n_x \times n_y$ spatial grid. The total number of time steps $n_t$ is given by $n_t = t_u + t_G$, where $t_u$ is the number of input time steps and $t_G$ is the number of predicted time steps. Model-specific hyperparameters are summarized in the tables below.
+
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\caption{\scriptsize\textbf{FNO hyper-parameters for all PDEs}}
+\label{tab:fno_hparams}
+\begin{tabular}{lccc}
+\hline
+\textbf{Parameter} & \textbf{PDE1} & \textbf{PDE2} & \textbf{PDE3} \\
+\hline
+Fourier modes $(x, y, t)$ & (8, 8, 8) & (8, 8, 8) & (8, 8, 8) \\
+Width & 20 & 20 & 20 \\
+Training epochs & 500 & 500 & 1000\\
+$n_x$ & 50& 64& 100\\
+$n_y$ & 50& 64& 100\\
+$t_u$ & 1& 1& 1\\
+$t_G$ & 99& 29& 50\\
+$n_t$ & 100& 30& 51\\
+\hline
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\caption{\scriptsize\textbf{WNO hyper-parameters for all PDEs}}
+\label{tab:wno_hparams}
+\begin{tabular}{lccc}
+\hline
+\textbf{Parameter} & \textbf{PDE1} & \textbf{PDE2} & \textbf{PDE3} \\
+\hline
+Wavelet basis & db6 & db6 & db6 \\
+Decomposition level & 4 & 4 & 4 \\
+Width & 30 & 30 & 30 \\
+Number of wavelet layers & 4 & 4 & 4 \\
+Training epochs & 500 & 500 & 1000\\
+$n_x$ & 50& 64& 100\\
+$n_y$ & 50& 64& 100\\
+$t_u$ & 1& 1& 1\\
+$t_G$ & 99& 29& 50\\
+$n_t$ & 100& 30& 51\\
+\hline
+\end{tabular}
+\end{minipage}
+\end{table}
+
+
+
+\begin{table}[htbp]
+\centering
+\caption{\scriptsize\textbf{DeepONet hyper-parameters for all PDEs}}
+\label{tab:deeponet_hparams}
+\scriptsize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lccc}
+\hline
+\textbf{Parameter} & \textbf{PDE1} & \textbf{PDE2} & \textbf{PDE3} \\
+\hline
+Branch network layers & [64, 128, 128, 128, 64] & [64, 128, 128, 128, 64] & [64, 128, 128, 128, 64] \\
+Trunk network layers & [64, 128, 128, 128, 64] & [64, 128, 128, 128, 64] & [64, 128, 128, 128, 64] \\
+Training epochs & 500 & 500 & 1000\\
+$n_x$ & 50& 64& 100\\
+$n_y$ & 50& 64& 100\\
+$t_u$ &  1&  1&  1\\
+$t_G$ &  99&  29&  50\\
+$n_t$ & 100& 30& 51\\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+% \begin{table}[htbp]
+% \centering
+% \caption{\textbf{FNO hyper-parameters for all PDEs}}
+% \label{tab:fno_hparams}
+% \scriptsize
+% \setlength{\tabcolsep}{5pt}
+% \begin{tabular}{lccc}
+% \hline
+% \textbf{Parameter} & \textbf{PDE1} & \textbf{PDE2} & \textbf{PDE3} \\
+% \hline
+% Fourier modes $(x, y, t)$ & (8, 8, 8) & (8, 8, 8) & (8, 8, 8) \\
+% Width & 20 & 20 & 20 \\
+% Training epochs & 500 & 500 & 1000\\
+% $n_x$ & 50& 64& 100\\
+% $n_y$ & 50& 64& 100\\
+% $t_u$ &  1&  1&  1\\
+% $t_G$ &  99&  29&  50\\
+% $n_t$ & 100& 30& 51\\
+% \hline
+% \end{tabular}
+% \end{table}
+
+% \vspace{1em}
+
+% \begin{table}[htbp]
+% \centering
+% \caption{\textbf{WNO hyper-parameters for all PDEs}}
+% \label{tab:wno_hparams}
+% \scriptsize
+% \setlength{\tabcolsep}{5pt}
+% \begin{tabular}{lccc}
+% \hline
+% \textbf{Parameter} & \textbf{PDE1} & \textbf{PDE2} & \textbf{PDE3} \\
+% \hline
+% Wavelet basis & db6 & db6 & db6 \\
+% Decomposition level & 4 & 4 & 4 \\
+% Width & 30 & 30 & 30 \\
+% Number of wavelet layers & 4 & 4 & 4 \\
+% Training epochs & 500 & 500 & 1000\\
+% $n_x$ & 50& 64& 100\\
+% $n_y$ & 50& 64& 100\\
+% $t_u$ &  1&  1&  1\\
+% $t_G$ &  99&  29&  50\\
+% $n_t$ & 100& 30& 51\\
+% \hline
+% \end{tabular}
+% \end{table}

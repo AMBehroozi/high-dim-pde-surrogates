@@ -1,0 +1,166 @@
+% \begin{enumerate}
+%     \item Theoretical Justification for Sensitivity-Constrained Training
+%         \begin{itemize}
+%           \item Neural Operators
+%           \item Sensitivity-Constrained Neural Operators (SC-NO)
+%           \item Theoretical Justification:
+%             \begin{itemize}
+%                 \item Assumptions and Notation
+%                 \item Assumption 1 (Uniform Convergence of Gradients)
+%                 \item Assumption 2 (Uniform Convergence of Solutions)
+%                 \item Cost Functionals
+%                 \item Improved Generalization
+%                 \item Long-Term Prediction Stability
+%                 \item Inversion Accuracy
+%             \end{itemize}
+%         \end{itemize}    
+    
+%     \item Data Generation
+%         \begin{itemize}
+%             \item Structure of the Input Function
+%             \item Dataset Structure with True Sensitivities
+%             \item Scaled Gaussian Random Field for Parameter Generation
+%         \end{itemize}
+    
+%     \item PDE1: Advection-Diffusion Equation with Spatially Distributed Velocity Field
+%         \begin{itemize}
+%             \item Problem setup
+%             \item Numerical Solver for the Advection-Diffusion Equation
+%             \item Neural Operator Learning for the Advection-Diffusion Equation
+%             \item Additional results for PDE1 (Tables 2 and 3; Figures 8 and 9)
+%         \end{itemize}
+
+%     \item PDE2: Turbulent Navier--Stokes Equations with Spalart--Allmaras Closure
+
+%         \begin{itemize}
+%             \item Problem setup
+%             \item Numerical Solver for the Turbulent Navier--Stokes Equations
+%             \item Neural Operator Learning for the Turbulent Navier--Stokes Equations
+%             \item Adjoint-Based Sensitivity Computation for the Turbulent Navier--Stokes Equations
+%             \item Additional results for PDE2 (Tables 4 and 5; Figures 10-12)
+%         \end{itemize}
+
+    
+%     \item PDE3: 2D Shallow Water Equations for the Tohoku 2011 Tsunami
+%         \begin{itemize}
+%             \item Problem setup
+%             \item Modeling Seafloor Deformation Using the Okada Dislocation Model
+%             \item Finite Volume Method for Shallow Water Equations
+%             \item Adjoint-Based Sensitivity Computation
+%             \item Neural Operator Learning for the Shallow Water Equations
+%             \item Mapping Between Fine Solver Mesh and Coarse Neural Operator Grid
+%             \item Three-Stage Inversion Framework for Tsunami Source Reconstruction (Figures 17-20)
+%             \item Additional results for PDE3 (Tables 6 and 7)
+%         \end{itemize}
+
+%     \item Applicability, Limitations, and Future Extensions
+%     \item Performance Metrics
+%     \item Experiments
+%         \begin{itemize}
+%           \item Forward Prediction
+%           \item Inverse Inference via Optimization
+%         \end{itemize}
+%     \item Hyperparameters and Settings (Tables 8-10)
+%     \item Computational Cost Analysis (Tables 11-13)
+%     \item Figures \ref{fig:bed_elevation} to \ref{fig:gauge_timeseries}
+% \end{enumerate}
+
+% \newpage
+
+% % %%%%%%%%%%%%%%%% MATERIALS AND METHODS %%%%%%%%%%%%%%%
+% % \input{Supplementary Materials Sections/mini_methods}
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/Mehods_sup}
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/Data_Generation_sup}
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/PDE1}
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/PDE2}
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/PDE3}
+
+
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/Prove_sup}
+
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/limitations}
+
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/error_metric}
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/ExprimentTypes}
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/Hyper-parameter}
+
+% % % \clearpage
+% % % \input{Supplementary Materials Sections/Prove_sup}
+
+% % \clearpage
+% % \input{Supplementary Materials Sections/cpu_time}
+
+
+\bmhead{Appendix}
+
+The appendix provides supporting theoretical, methodological, numerical, and experimental details for the main manuscript. It is organized as follows:
+
+\begin{enumerate}
+    \item \textbf{Theoretical justification for sensitivity-constrained training}
+    \begin{itemize}
+        \item Neural operators
+        \item Sensitivity-constrained neural operators (SC-NO)
+        \item Assumptions, notation, cost functionals, improved generalization, long-term prediction stability, and inversion accuracy
+    \end{itemize}
+
+    \item \textbf{Data generation}
+    \begin{itemize}
+        \item Input-function structure
+        \item Dataset structure with true sensitivities
+        \item Scaled Gaussian random fields for parameter generation
+    \end{itemize}
+
+    \item \textbf{PDE1: Advection--diffusion equation with spatially distributed velocity field}
+    \begin{itemize}
+        \item Problem setup, numerical solver, neural-operator learning setup, and additional results
+    \end{itemize}
+
+    \item \textbf{PDE2: Turbulent Navier--Stokes equations with Spalart--Allmaras closure}
+    \begin{itemize}
+        \item Problem setup, numerical solver, neural-operator learning setup, adjoint-based sensitivities, and additional results
+    \end{itemize}
+
+    \item \textbf{PDE3: 2D shallow water equations for the 2011 Tohoku tsunami}
+    \begin{itemize}
+        \item Problem setup, Okada deformation model, finite-volume solver, adjoint-based sensitivities, neural-operator learning, fine-to-coarse grid mapping, three-stage source inversion, and additional results
+    \end{itemize}
+
+    \item \textbf{Applicability, limitations, and future extensions}
+
+    \item \textbf{Performance metrics}
+
+    \item \textbf{Experiments}
+    \begin{itemize}
+        \item Forward prediction
+        \item Inverse inference via optimization
+    \end{itemize}
+
+    \item \textbf{Hyperparameters and settings}
+
+    \item \textbf{Computational cost analysis}
+
+    \item \textbf{Additional figures}
+    \begin{itemize}
+        \item Figures~\ref{fig:bed_elevation}--\ref{fig:gauge_timeseries}
+    \end{itemize}
+\end{enumerate}

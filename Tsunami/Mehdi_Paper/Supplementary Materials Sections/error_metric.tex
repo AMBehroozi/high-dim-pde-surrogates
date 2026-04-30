@@ -1,0 +1,18 @@
+\section{Performance Metrics}
+
+To evaluate the performance of our neural operator models, we report two complementary metrics: the relative \( L^2 \) error and the mean absolute error (MAE). The relative \( L^2 \) error quantifies the normalized discrepancy between predicted and ground truth solutions, while the MAE captures average absolute deviations. This dual-metric approach ensures robustness by balancing scale-invariant accuracy (via \( L^2 \)) with direct magnitude sensitivity (via MAE). Specifically, we define:
+
+\begin{equation}
+\text{Relative } L^2 \text{ Error} := \frac{1}{N} \sum_{i=1}^{N} 
+\frac{\left\| \mathcal{G}_\theta(a^{(i)}) - u^{(i)} \right\|_2}{\left\| u^{(i)} \right\|_2},
+\end{equation}
+
+\begin{equation}
+\text{Mean Absolute Error (MAE)} := \frac{1}{N} \sum_{i=1}^{N} 
+\left\| \mathcal{G}_\theta(a^{(i)}) - u^{(i)} \right\|_1,
+\end{equation}
+
+where \( N \) is the number of test samples, \( \mathcal{G}_\theta(a^{(i)}) \) is the model prediction for input \( a^{(i)} \), and \( u^{(i)} \) is the corresponding ground truth solution. Both metrics are computed over the full spatial-temporal domain of the PDE solutions.
+
+
+
