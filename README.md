@@ -75,13 +75,13 @@ In practice, this framework is implemented using sensitivity-constrained variant
 ## Visual Summary
 
 <p align="center">
-  <img src="figs/Tsunami_animation.gif" alt="Tsunami Forecasting Animation" width="800"/>
+  <img src="figs/Tsunami_animation.gif" alt="Tsunami Forecasting Animation" width="1000"/>
   <br>
   <em>Real-time tsunami propagation forecasting using SC-FNO.</em>
 </p>
 
 <p align="center">
-  <img src="figs/3plot.png" alt="Time Series Comparison" width="650"/>
+  <img src="figs/3plot.png" alt="Time Series Comparison" width="1000"/>
   <br>
   <em>Comparison of stage prediction, absolute error, and cumulative relative L2 error between SC-FNO and FNO.</em>
 </p>
